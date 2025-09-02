@@ -98,8 +98,7 @@ if Vg_mL < 2.0:
 
     
 
-if conversion_efficiency > 100:
-    st.warning("⚠️ Warning: Predicted O₂ exceeds theoretical maximum!")
+
 
 # --- Export Data ---
 df_export = pd.DataFrame({
