@@ -5,7 +5,9 @@ import matplotlib.pyplot as plt
 from io import BytesIO
 
 # --- Load data ---
-data_path = r"C:\Users\chand\Documents\GitHub\Thesis\CSV files outputs\Modified vant hoff modelling\ntot values.csv"
+import os
+data_path = os.path.join(os.path.dirname(__file__), "ntot_values.csv")
+
 df = pd.read_csv(data_path)
 df.columns = [c.strip() for c in df.columns]
 
