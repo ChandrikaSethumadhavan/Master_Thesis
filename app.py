@@ -91,9 +91,9 @@ st.markdown(f"**Theoretical Max O₂:** {theoretical_max:.2f} µmol")
 st.markdown(f"**Predicted Max O₂:** {np.max(ntotal_scaled_umol):.2f} µmol")
 st.markdown(f"**Conversion Efficiency:** {conversion_efficiency:.1f}%")
 
-# Add these validation checks:
-if Vg_mL < 2.0:
-    st.error(" Headspace too small - predictions unreliable")
+#validation checks:
+# if Vg_mL < 2.0:
+#     st.error(" Headspace too small - predictions unreliable")
     
 
     
