@@ -74,13 +74,13 @@ st.pyplot(fig)
 
 # --- Results Summary ---
 st.markdown("### Prediction Summary")
-col1, col2, col3 = st.columns(3)
+col1, col2 = st.columns(2)
 with col1:
     st.metric("Max Pressure", f"{np.max(P_pred_kPa):.4f} kPa")
 with col2:
     st.metric("Final Pressure", f"{P_pred_kPa.iloc[-1]:.4f} kPa")
-with col3:
-    st.metric("Max O₂ Scaled", f"{np.max(ntotal_scaled_umol):.2f} µmol")
+# with col3:
+#     st.metric("Max O₂ Scaled", f"{np.max(ntotal_scaled_umol):.2f} µmol")
 
 # --- Physics Check ---
 st.markdown("### Physics Validation")
