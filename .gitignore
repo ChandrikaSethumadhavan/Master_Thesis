@@ -23,6 +23,13 @@ M2_2.18mM_37deg_pressure_o2_release37deg_DeltaH_from_T.csv
 henrys_constants_37deg.csv
 O2_released_multi_volumes.csv
 CSV files outputs -RT/
+ntotal_output_37.csv
+O2_37released_multi_volumes.csv
+ntotal_output_RT.csv
+
+
+
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

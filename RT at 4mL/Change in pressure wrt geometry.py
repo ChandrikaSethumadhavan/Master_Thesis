@@ -5,23 +5,28 @@ import matplotlib.pyplot as plt
 from io import BytesIO
 
 # --- Load data ---
-data_path = r"C:\Users\chand\Documents\GitHub\Thesis\CSV files outputs\Modified vant hoff modelling\ntot values.csv"
+data_path = r"C:\Users\chand\Documents\GitHub\Thesis\RT at 4mL\ntotal_output_RT.csv"
+df_2 = r"C:\Users\chand\Documents\GitHub\Thesis\CSV files outputs -RT\Vant hoff modelling\henry's constants.csv"
+
+
 df = pd.read_csv(data_path)
 df.columns = [c.strip() for c in df.columns]
+df_kh = pd.read_csv(df_2)
+df_kh.columns = [c.strip() for c in df_kh.columns]
 
 # Extract and clean data
-t_h = pd.to_numeric(df["Elapsed Time (h)"], errors="coerce") - df["Elapsed Time (h)"].iloc[0]
-n_tot_umol = pd.to_numeric(df["n_total (µmol)"], errors="coerce")  # Keep in µmol for now
-k_H = pd.to_numeric(df["kH_mol_per_L_atm"], errors="coerce")
+t_h = pd.to_numeric(df["Elapsed Time (h)"], errors="coerce") 
+n_tot_umol = pd.to_numeric(df["n_total(µmol)"], errors="coerce")  # Keep in µmol for now
+k_H = pd.to_numeric(df["kH (mol/L/atm)"], errors="coerce")
 
 # Constants (as per your specifications)
-R = 0.08206  # L·atm/mol·K (as specified in your documents)
-T_K = 297    # K (as you requested: "always T = 297 unless mentioned specifically")
+R = 0.082057  # L·atm/mol·K (as specified in your documents)
+T_K = pd.to_numeric(df_kh["Temperature_K"],    errors="coerce")
 
 # --- Sidebar sliders ---
 st.sidebar.title("Volume Parameters")
 Vsol_mL = st.sidebar.slider("Solution Volume (Vsol, mL)", min_value=1.0, max_value=10.0, value=6.0, step=0.1)
-Vg_mL   = st.sidebar.slider("Gas Headspace Volume (Vg, mL)", min_value=0.5, max_value=6.0, value=2.0, step=0.1)
+Vg_mL   = st.sidebar.slider("Gas Headspace Volume (Vg, mL)", min_value=0.5, max_value=6.0, value=4.0, step=0.1)
 
 # Convert mL to L
 Vsol = Vsol_mL / 1000
@@ -42,6 +47,10 @@ ntotal_scaled_mol = ntotal_scaled_umol * 1e-6
 # Use first value of kH if it's time-varying, or mean if multiple values
 kH_value = k_H.iloc[0] if len(k_H.dropna()) > 0 else 1.3e-3  # fallback value
 
+
+
+
+
 A_gas = Vg / (R * T_K)
 A_aq = kH_value * Vsol
 A_total = A_gas + A_aq
@@ -52,16 +61,16 @@ P_pred_kPa = P_pred_atm * 101.325  # atm → kPa
 # --- Plotting ---
 st.title("Predicted Pressure Based on Vsol and Vg (Scaled ntotal)")
 st.markdown(f"**Volume Scaling Factor:** {volume_ratio:.3f} (New volume / Reference volume)")
-st.markdown(f"**Reference Experiment:** 6 mL solution, 2 mL headspace")
+st.markdown(f"**Reference Experiment:** 6 mL solution, 4 mL headspace")
 
 fig, ax = plt.subplots(figsize=(10, 6))
 ax.plot(t_h, P_pred_kPa, lw=2, color='blue', label=f'Predicted ({Vsol_mL:.1f}:{Vg_mL:.1f})')
 
 # Plot reference case for comparison
 if volume_ratio != 1.0:
-    P_ref_atm = (n_tot_umol * 1e-6) / ((0.002/(R*T_K)) + (kH_value*0.006))
+    P_ref_atm = (n_tot_umol * 1e-6) / ((0.004/(R*T_K)) + (kH_value*0.006))
     P_ref_kPa = P_ref_atm * 101.325
-    ax.plot(t_h, P_ref_kPa, '--', lw=1.5, color='red', alpha=0.7, label='Reference (6:2)')
+    ax.plot(t_h, P_ref_kPa, '--', lw=1.5, color='red', alpha=0.7, label='Reference (6:4)')
 
 ax.set_xlabel("Elapsed Time (h)")
 ax.set_ylabel("Predicted Pressure (kPa)")
