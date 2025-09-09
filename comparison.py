@@ -2,6 +2,10 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+from scipy import stats
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import r2_score
+import seaborn as sns
 
 st.set_page_config(page_title="Pressure Predictor: RT vs 37°C", layout="wide")
 
@@ -66,11 +70,9 @@ volume_ratio = Vsol / Vsol_ref
 ntot_rt_scaled_mol  = (ntot_rt  * volume_ratio) * 1e-6
 ntot_37_scaled_mol  = (ntot_37  * volume_ratio) * 1e-6
 
-# kH: if the ntotal files already include a kH column for each time, you can use its mean (or the series).
-# For consistency with your previous app, keep kH as a scalar per dataset (first non-NaN), but you can
-# switch to time-varying by replacing kH_*_val with the series kH_* directly.
-kH_rt_val = kH_rt.dropna().iloc[0] if kH_rt.dropna().size else 1.3e-3
-kH_37_val = kH_37.dropna().iloc[0] if kH_37.dropna().size else 1.3e-3
+
+kH_rt_val = kH_rt
+kH_37_val = kH_37
 
 # Gas and aqueous "A" factors — A_gas uses time-varying temperature series (element-wise)
 A_gas_rt = Vg / (R * T_RT.values)         # mol/atm (vector)
@@ -119,8 +121,8 @@ with c4:
 with st.expander("Details used in predictions"):
     st.write(f"- R = {R} L·atm·mol⁻¹·K⁻¹")
     st.write(f"- Vsol = {Vsol_mL:.1f} mL, Vg = {Vg_mL:.1f} mL")
-    st.write(f"- kH (RT) ≈ {kH_rt_val:.3e} mol·L⁻¹·atm⁻¹ (scalar used)")
-    st.write(f"- kH (37 °C) ≈ {kH_37_val:.3e} mol·L⁻¹·atm⁻¹ (scalar used)")
+    st.write(f"- kH (RT) ≈ Modelled with vant hoff according to each temperature value at each timestamp")
+    st.write(f"- kH (37 °C) ≈ Modelled with vant hoff according to each temperature value at each timestamp")
     st.write(f"- A_gas computed with time-varying Temperature_K from each dataset (element-wise)")
 
 # =========================
@@ -132,14 +134,14 @@ rt_df = pd.DataFrame({
     "P_RT_kPa": P_rt_kPa,
     "T_RT_K": T_RT,
 })
-rt_df["kH_RT_used"] = kH_rt_val
+
 
 t37_df = pd.DataFrame({
     "Time_h": t_37_h,
     "P_37_kPa": P_37_kPa,
     "T_37_K": T_37,
 })
-t37_df["kH_37_used"] = kH_37_val
+
 
 # --- outer merge on time, keep all rows from both, sorted by time ---
 export = (
@@ -161,10 +163,4 @@ st.download_button(
 )
 
 
-# =========================
-# NOTES
-# =========================
-st.caption(
-    "Notes: (1) ntotal inputs are scaled by Vsol/6 mL; (2) A_gas = Vg/(R·T(t)) uses each dataset's time-varying Temperature_K; "
-    "(3) kH is treated as a scalar per dataset (first non-NaN). You can switch to time-varying kH by replacing kH_*_val with kH_* series."
-)
+
