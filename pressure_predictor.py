@@ -59,8 +59,8 @@ P_pred_atm = ntotal_scaled_mol / A_total
 P_pred_kPa = P_pred_atm * 101.325  # atm → kPa
 
 # --- Plotting ---
-st.title("Predicted Pressure Based on Vsol and Vg (Scaled ntotal)")
-st.markdown(f"**Volume Scaling Factor:** {volume_ratio:.3f} (New volume / Reference volume)")
+st.title("Predicted Pressure Based on Vsol and Vg at 37 °C")
+st.markdown(f"**Volume Scaling Factor:** {volume_ratio:.3f} (New volume / Reference volume (6mL))")
 st.markdown(f"**Reference Experiment:** 6 mL solution, 4 mL headspace")
 
 fig, ax = plt.subplots(figsize=(10, 6))
