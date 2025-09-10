@@ -3,8 +3,6 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-from sklearn.metrics import r2_score
-import seaborn as sns
 from pathlib import Path
 
 st.set_page_config(page_title="Pressure Predictor: RT vs 37°C", layout="wide")
