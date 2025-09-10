@@ -6,14 +6,15 @@ from scipy import stats
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
 import seaborn as sns
+from pathlib import Path
 
 st.set_page_config(page_title="Pressure Predictor: RT vs 37°C", layout="wide")
 
 # =========================
 # LOAD DATA (RT)
 # =========================
-rt_ntotal_csv = r"C:\Users\chand\Documents\GitHub\Thesis\ntotal_output_RT.csv"
-rt_kh_csv     = r"C:\Users\chand\Documents\GitHub\Thesis\henry's constants.csv"
+rt_ntotal_csv = Path("data/ntotal_output_RT.csv")
+rt_kh_csv     = Path("data/henry's constants.csv")
 
 df_rt   = pd.read_csv(rt_ntotal_csv)
 df_rt.columns = [c.strip() for c in df_rt.columns]
@@ -33,8 +34,8 @@ t_rt_h, ntot_rt, kH_rt, T_RT = [s.iloc[:n_rt].reset_index(drop=True) for s in (t
 # =========================
 # LOAD DATA (37 °C)
 # =========================
-t37_ntotal_csv = r"C:\Users\chand\Documents\GitHub\Thesis\ntotal_output_37.csv"
-t37_kh_csv     = r"C:\Users\chand\Documents\GitHub\Thesis\henrys_constants_37deg.csv"
+t37_ntotal_csv = Path("data/ntotal_output_37.csv")
+t37_kh_csv     = Path("data/henrys_constants_37deg.csv")
 
 df_37   = pd.read_csv(t37_ntotal_csv)
 df_37.columns = [c.strip() for c in df_37.columns]

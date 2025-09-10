@@ -3,9 +3,10 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from io import BytesIO
+from pathlib import Path
 
 # --- Load data ---
-data_path = r"C:\Users\chand\Documents\GitHub\Thesis\ntot_37.csv"
+data_path = Path("data/ntot_37.csv")
 
 
 df = pd.read_csv(data_path)
