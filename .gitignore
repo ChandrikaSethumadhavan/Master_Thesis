@@ -28,10 +28,11 @@ O2_37released_multi_volumes.csv
 ntotal_output_RT.csv
 M1_2.5mM_pressure_RT_o2_release.csv
 M1_2.5mM_pressure_RT_o2_releaseRT_DeltaH_from_T.csv
-2.5mM EDA/
+2.5mM EDA/henrys_constants_RT.csv
+2.5mM EDA/O2_RT_released_multi_volumes.csv
+2.5mM EDA/ntotal_output_RT_2.5mM.csv
 ntot_RT_2.5.csv
-
-
+Absorbance data/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
