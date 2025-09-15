@@ -6,7 +6,7 @@ from io import BytesIO
 from pathlib import Path
 
 # --- Load data ---
-data_path = Path("ntot_RT_2.5.csv")
+data_path = r"C:\Users\chand\Documents\GitHub\Thesis\data\ntot_RT_2.5.csv"
 
 
 df = pd.read_csv(data_path)
