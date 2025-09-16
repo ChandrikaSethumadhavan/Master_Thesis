@@ -33,7 +33,8 @@ M1_2.5mM_pressure_RT_o2_releaseRT_DeltaH_from_T.csv
 2.5mM EDA/ntotal_output_RT_2.5mM.csv
 ntot_RT_2.5.csv
 Absorbance data/
-
+Sample_M3.zip
+Sample_M3/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
