@@ -37,3 +37,15 @@ The integral just means: add up the contributions from every wavelength in the L
 8. The protocol reports typical blank responses (e.g., 
 A400≈0.198, 
 A265≈0.70) that you remove via this step. A corrected = Ameasured - Awater
+
+
+
+9. In page 14, under for data at 37 deg C:
+In the steps, e step of subtracting the baseline so that pressure is centered around 0 kPa: why do this?
+soln: Your ABP2 reads 1.9 kPa at stable conditions, but physically it should represent “zero pressure difference.”The experiment is looking at how pressure changes over time (relative differences). By subtracting the baseline (the average stable reading), we remove the constant offset and make the starting point = 0.
+
+Without correction: Your graph starts at ~1.9 kPa and then rises to 2.3 kPa.
+
+With correction: It starts at 0 kPa and rises to +0.4 kPa.
+
+The second version makes it obvious: the pressure increased by 0.4 kPa from baseline.

@@ -35,6 +35,13 @@ ntot_RT_2.5.csv
 Absorbance data/
 Sample_M3.zip
 Sample_M3/
+37deg at 4mL/
+M2_2.18mM_37deg_pressure_o2_release_cleaned.csv
+2_M2_2.18mM_37deg_pressure_o2_release.csv
+2_M2_2.18mM_37deg_pressure_o2_release37deg_DeltaH_from_T.csv
+
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
