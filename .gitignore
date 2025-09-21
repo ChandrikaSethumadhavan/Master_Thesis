@@ -1,44 +1,13 @@
-M2_2.18mM_pressure_o2_release.csv
-M2_2.18mM_pressure_o2_release_parts_and_total_umol.csv
-Henry_constant_vs_T_23to25p9C.csv
+Absorbance + pressure/
+Automating helper scripts/
+M1-2.5mM/
+M2-2.18mM/
+M3-1.2mM/
+Miscellaneous/
+processedplots/
+M3_1.2mM_37deg_pressure_o2_release_cleaned.csv
+M3_1.2mM_37deg_pressure_o2_release.csv
 
-M2_2.18mM_pressure_o2_release_n_total_dynamic_T_kH.csv
-M2_2.18mM_pressure_o2_release_n_total_const_vs_dynamic.csv
-M2_2.18mM_pressure_o2_release_DeltaH_from_T.csv
-
-
-ntot_from_KK_H.csv
-M2_2.18mM_pressure_o2_releaserandom.csv
-M2_2.18mM_pressure_o2_release_ntot_dynamic_T_kH_in KJ.csv
-henry's constants_2.csv
-KK_Hvalues.csv
-absorbance_detection_efficiency.csv
-predicted_pressure_Vsol_6.0_Vg_2.0.csv
-ntot_from_fit_approach2.csv
-# weiss_Henry.csv
-# data_with_ntotal.csv
-kH_and_n_total_best.csv
-M2_2.18mM_37deg_pressure_o2_release.csv
-M2_2.18mM_37deg_pressure_o2_release37deg_DeltaH_from_T.csv
-henrys_constants_37deg.csv
-O2_released_multi_volumes.csv
-CSV files outputs -RT - 2.18/
-ntotal_output_37.csv
-O2_37released_multi_volumes.csv
-ntotal_output_RT.csv
-M1_2.5mM_pressure_RT_o2_release.csv
-M1_2.5mM_pressure_RT_o2_releaseRT_DeltaH_from_T.csv
-2.5mM EDA/henrys_constants_RT.csv
-2.5mM EDA/O2_RT_released_multi_volumes.csv
-2.5mM EDA/ntotal_output_RT_2.5mM.csv
-ntot_RT_2.5.csv
-Absorbance data/
-Sample_M3.zip
-Sample_M3/
-37deg at 4mL/
-M2_2.18mM_37deg_pressure_o2_release_cleaned.csv
-2_M2_2.18mM_37deg_pressure_o2_release.csv
-2_M2_2.18mM_37deg_pressure_o2_release37deg_DeltaH_from_T.csv
 
 
 
