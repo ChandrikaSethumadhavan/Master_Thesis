@@ -2,14 +2,17 @@ Absorbance + pressure/
 Automating helper scripts/
 M1-2.5mM/
 M2-2.18mM/
-M3-1.2mM/
+M3-1.2mM/Optical/
+M3-1.2mM/Sample_M3/
+M3-1.2mM/Pressure/37 C/Data files/
+M3-1.2mM/Pressure/RT/Data files/
 Miscellaneous/
 processedplots/
-M3_1.2mM_37deg_pressure_o2_release_cleaned.csv
-M3_1.2mM_37deg_pressure_o2_release.csv
 
+epo_table9_style.csv
+henrys_constants_37.csv
 
-
+1_M3_1.2mM_Protocol.pdf
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
