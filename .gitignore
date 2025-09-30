@@ -9,7 +9,11 @@ C:\Users\chand\Documents\GitHub\Thesis\M3-1.2mM\Pressure\37 C
 # M3-1.2mM/Pressure/RT/Data files/
 Miscellaneous/
 processedplots/
+processedcsv/
 
+M3-1.2mM/Pressure/RT/Data files/denoised_pressure_log_RT.csv
+M3-1.2mM/Pressure/RT/Data files/old v/
+M3_1.2mM_37deg_pressure_o2_release.csv
 
 # henrys_constants_37.csv
 
