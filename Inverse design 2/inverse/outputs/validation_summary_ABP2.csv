@@ -1,0 +1,3 @@
+sample,temp_label,C_mM,eta_hat,k_hat_mean,rmse_kpa,pmax_meas_kpa,pmax_pred_kpa
+M6_RT,RT,2.67,1.007367,0.020367,2.2323,8.556,8.751
+M6_37C,37C,2.67,0.93963,0.097557,0.3868,8.497,8.269

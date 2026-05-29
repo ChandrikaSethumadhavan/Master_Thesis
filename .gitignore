@@ -1,6 +1,12 @@
 M2_2.18mM_pressure_o2_release.csv
 M2_2.18mM_pressure_o2_release_parts_and_total_umol.csv
 Henry_constant_vs_T_23to25p9C.csv
+SET1_M series/
+SET2/
+csv_combi/
+New_experimental_data/
+k analysis/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
